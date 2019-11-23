@@ -11,12 +11,13 @@ county = []
 candidates = []
 total_votes = 0
 candidate_votes = []
+vote_percentage = []
 
-#Open election_data.csv file
+#Open election_data.csv file:
 with open(os.path.join('Resources','election_data.csv'),'r') as in_file:
     election_data = csv.reader(in_file)
     header = next(election_data)
-    #Calculate the votes
+    #Calculate the votes:
     for row in election_data:
         total_votes += 1
         candidate = row[2]
@@ -26,14 +27,29 @@ with open(os.path.join('Resources','election_data.csv'),'r') as in_file:
             candidates.append(candidate)
             candidate_votes.append(1)
 
-print ("total votes: " + str(total_votes))
+# Calculate the voting percentage for each candidate:
 for count in range(len(candidates)):
-        print(f"{candidates[count]}: ({candidate_votes[count]})")
+    percentage = round(candidate_votes[count]/total_votes*100,2)
+    vote_percentage.append(percentage)
 
-# Calculate the voting percentage for each candidate
+# Identify the Election winner:
+election_winner = candidates[candidate_votes.index(max(candidate_votes))]
 
-# Identify the Election winner
-
-# Print the Election results
+# Print the Election results:
+dash_break = "-------------------------"
+print("Election Results")
+print(dash_break)
+print(f"Total Votes: {total_votes}")
+print(dash_break)
+for count in range(len(candidates)):
+    print(f"{candidates[count]}: {vote_percentage[count]}% ({candidate_votes[count]})")
+print(dash_break)
+print(f"Winner: {election_winner}")
+print(dash_break)
 
 # Export the Election analysis text file
+#analysis = open('Election_Analysis.txt','w+')
+#analysis.writelines(lines)
+#analysis.close()
+#analysis = open('Election_Analysis.txt','r+')
+#print(analysis.read())
