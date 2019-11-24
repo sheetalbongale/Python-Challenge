@@ -6,8 +6,6 @@
 import os
 import csv
 
-voter_id = []
-county = []
 candidates = []
 total_votes = 0
 candidate_votes = []
