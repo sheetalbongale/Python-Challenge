@@ -47,3 +47,4 @@ print(f"Winner: {election_winner}")
 print(dash_break)
 
 # Export the Election Results text file:
+result_txt = open('Election_analysis.txt','w+')
