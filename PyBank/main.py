@@ -6,16 +6,31 @@
 import os
 import csv
 
-Date = []
+date = []
 total_months = 0
-total_amount = []
+profit_loss = []
+net_amount = []
+change = []
 
-# Open budget_data.csv file:
+# Open and read budget_data.csv file:
 with open(os.path.join('Resources','budget_data.csv'),'r') as in_file:
     budget_data = csv.reader(in_file)
     header = next(budget_data)
-    # Find the total months:
     for row in budget_data:
-        total_months += 1
+        date.append(row[0])
+        profit_loss.append(row[1])
+        
+# Find the total months:
+total_months = len(date)
+print (str(total_months))
+
+# Calculate net total amount of Profit/losses
+profit_loss = [int(row) for row in profit_loss]
+net_amount = sum(profit_loss)
+print (str(net_amount))
+
+
+
+
 
 

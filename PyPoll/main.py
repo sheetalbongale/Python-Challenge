@@ -11,14 +11,15 @@ total_votes = 0
 candidate_votes = []
 vote_percentage = []
 
-#Open election_data.csv file:
+# Open and read election_data.csv file:
 with open(os.path.join('Resources','election_data.csv'),'r') as in_file:
     election_data = csv.reader(in_file)
     header = next(election_data)
-    #Calculate the votes:
+    # Calculate the votes:
     for row in election_data:
         total_votes += 1
         candidate = row[2]
+        # Calculate the individual candidate votes:
         if candidate in candidates:
             candidate_votes[candidates.index(candidate)] += 1
         else:
