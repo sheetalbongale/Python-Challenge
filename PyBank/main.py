@@ -32,7 +32,7 @@ max_date = date[change.index(max_change)+1]
 min_change = min(change)
 min_date = date[change.index(min_change)+1]
 
-# Output Print:
+# Output print format:
 dash_break = "-------------------------------------------------"
 print_lines = (
     dash_break +'\n' + "Financial Analysis" +'\n' + dash_break +'\n'
@@ -42,8 +42,13 @@ print_lines = (
     "Greatest Increase in Profits: "+ str(max_date) + " ($" + str(max_change) + ")"'\n'
     "Greatest Decrease in Losses: "+ str(min_date) + " ($" + str(min_change) + ")"'\n' + dash_break +'\n'
     )
-print (print_lines)
 
+# Print & Export the Financial Analysis text file:
+analysis_file = open('Financial_analysis.txt','w+')
+analysis_file.writelines(print_lines)
+analysis_file.close()
+analysis_file = open('Financial_analysis.txt','r+')
+print(analysis_file.read())
 
 
 
