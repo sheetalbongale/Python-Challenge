@@ -8,7 +8,7 @@ import csv
 
 # Declaration of empty header lists for parsed data
 emp_id = []
-first_name = []
+first_name = [] 
 last_name = []
 dob =[]
 ssn = []
@@ -37,9 +37,10 @@ with open(os.path.join('Resources','employee_data.csv'),'r') as old_file:
         ssn.append('***-**-' + row['SSN'].split('-')[2])
         state.append(us_state_abbrev[row['State']])
 
-    
-# Create the required header format in a new csv file
-#with open('new_employee_data' , 'w+') as new_file:
-    #new_header = ["Emp ID","First Name","Last Name","DOB","SSN","State"]
-    #write
+cleaned_csv = zip(emp_id,first_name,last_name,dob,ssn,state)
 
+# Create the required header format in a new csv file
+with open('clean_employee_data.csv' , 'w') as new_file:
+    writer = csv.writer(new_file, delimiter = ",")
+    writer.writerow(['Emp ID','First Name','Last Name','DOB','SSN','State']) 
+    writer.writerow(cleaned_csv)
