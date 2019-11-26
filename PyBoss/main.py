@@ -28,7 +28,7 @@ us_state_abbrev = {
 with open(os.path.join('Resources','employee_data.csv'),'r') as old_file:
     old_employee_data = csv.DictReader(old_file)
     next(old_employee_data)
-    # Append the new empthy data lists after converting the old data to the new format:
+    # Append the new empty data lists after converting the old data to the new format:
     for row in old_employee_data:
         
         emp_id.append(row['Emp ID'])
