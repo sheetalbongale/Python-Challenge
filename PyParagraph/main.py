@@ -31,7 +31,7 @@ with open (file_path, 'r') as txt_file:
     word_count = len(paragraph.split(' '))
 
     # Count the number of sentences:
-    sentence_count = paragraph.count(".")
+    sentence_count = len(sentences)
 
     # Calculate the average word length:
     letters = 0
