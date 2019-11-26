@@ -12,8 +12,24 @@ sentence_count = 0
 letter_count = 0
 sentence_length = 0
 
+'''
+user_input = input("Enter the paragraph number: 1 or 2 ?")
+if user_input == 1:
+    file_path = os.path.join ('raw_data', 'paragraph_1.txt')
+else:
+    file_path = os.path.join ('raw_data', 'paragraph_2.txt')
+'''
+file_path = os.path.join ('raw_data', 'readme_example.txt')
+
+with open (file_path, 'r') as in_file:
+    textfile_content = in_file.read()
+
+    word_count = len(textfile_content.split( ))
+    sentence_count = textfile_content.count(".")
 
 
+
+# Output print format:
 dash_break = "-----------------------------"
 print_lines = {
     "Paragraph Analysis \n" + dash_break + "\n"
