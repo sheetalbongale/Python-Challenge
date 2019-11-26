@@ -24,11 +24,11 @@ file_path = os.path.join ('raw_data', 'readme_example.txt')
 
 with open (file_path, 'r') as txt_file:
     paragraph = txt_file.read()
-    words = re.split(' ',paragraph)
-    sentences = re.split("(?<=[.!?])+",paragraph)
+    words = re.split(r' ',paragraph)
+    sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s',paragraph)
 
     # Count the number of words:
-    word_count = len(paragraph.split(' '))
+    word_count = len(words)
 
     # Count the number of sentences:
     sentence_count = len(sentences)
