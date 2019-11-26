@@ -27,6 +27,7 @@ us_state_abbrev = {
 # Open and read employee_data.csv file:
 with open(os.path.join('Resources','employee_data.csv'),'r') as old_file:
     old_employee_data = csv.DictReader(old_file)
+    next(old_employee_data)
     # Append the new header lists after converting the old header to the new format:
     for row in old_employee_data:
         
@@ -43,4 +44,4 @@ cleaned_csv = zip(emp_id,first_name,last_name,dob,ssn,state)
 with open('clean_employee_data.csv' , 'w') as new_file:
     writer = csv.writer(new_file, delimiter = ",")
     writer.writerow(['Emp ID','First Name','Last Name','DOB','SSN','State']) 
-    writer.writerow(cleaned_csv)
+    writer.writerows(cleaned_csv)
