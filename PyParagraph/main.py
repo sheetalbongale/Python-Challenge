@@ -12,29 +12,15 @@ sentence_count = 0
 letter_count = 0
 sentence_length = 0
 
-'''
-user_input = input("Enter the paragraph number: 1 or 2 ?")
-if user_input == 1:
-    file_path = os.path.join ('raw_data', 'paragraph_1.txt')
-elif user_input == 2:
-    file_path = os.path.join ('raw_data', 'paragraph_2.txt')
-else:
-    print ("Invalid Entry. File not found")
+# User input to choose the file_number (1 or 2)
+file_num = input("Enter the paragraph number: 1 or 2 ?")
 
-file_path = os.path.join ('raw_data', 'readme_example.txt')
-_________
-fileList = ["paragraph_1.txt","paragraph_2.txt"]
-'''
-'''
-for file in fileList:
-    file_path = os.path.join('raw_data',file)
-'''
-
-#choose file_number (1 or 2)
-file_num = 2
-
-#sets file
+# Sets file and start parsing
 file_path = os.path.join('raw_data', 'paragraph_'  + str(file_num) + '.txt')
+
+'''
+file_path = os.path.join ('raw_data', 'readme_example.txt')
+'''
 
 with open (file_path, 'r') as txt_file:
     paragraph = txt_file.read()
