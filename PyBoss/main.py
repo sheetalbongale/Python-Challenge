@@ -1,12 +1,12 @@
 # Python Homework - PyBoss
 # Submitted by : Sheetal Bongale
-# Python 3.7.4
-# This Python script will convert a given dataset to the required format
+# Python 3.8
+# This Python script will convert a given dataset to the required format and exports an updated clean .csv file
 
 import os
 import csv
 
-# Declaration of empty header lists for parsed data
+# Declaration of empty lists according to required format for parsed data
 emp_id = []
 first_name = [] 
 last_name = []
@@ -28,7 +28,7 @@ us_state_abbrev = {
 with open(os.path.join('Resources','employee_data.csv'),'r') as old_file:
     old_employee_data = csv.DictReader(old_file)
     next(old_employee_data)
-    # Append the new header lists after converting the old header to the new format:
+    # Append the new empthy data lists after converting the old data to the new format:
     for row in old_employee_data:
         
         emp_id.append(row['Emp ID'])
@@ -38,9 +38,10 @@ with open(os.path.join('Resources','employee_data.csv'),'r') as old_file:
         ssn.append('***-**-' + row['SSN'].split('-')[2])
         state.append(us_state_abbrev[row['State']])
 
+# Zip the modified entries
 cleaned_csv = zip(emp_id,first_name,last_name,dob,ssn,state)
 
-# Create the required header format in a new csv file
+# Write and Export the new updated csv file:
 with open('clean_employee_data.csv' , 'w') as new_file:
     writer = csv.writer(new_file, delimiter = ",")
     writer.writerow(['Emp ID','First Name','Last Name','DOB','SSN','State']) 
