@@ -12,10 +12,10 @@ sentence_count = 0
 letter_count = 0
 sentence_length = 0
 
-# User input to choose the file_number (1 or 2)
+# User input to choose the file_number (1 or 2):
 file_num = input("Enter the paragraph number: 1 or 2 ?")
 
-# Sets file and start parsing
+# Sets file and start parsing:
 file_path = os.path.join('raw_data', 'paragraph_'  + str(file_num) + '.txt')
 
 '''
