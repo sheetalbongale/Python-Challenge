@@ -12,16 +12,22 @@ sentence_count = 0
 letter_count = 0
 sentence_length = 0
 
+
 '''
 user_input = input("Enter the paragraph number: 1 or 2 ?")
 if user_input == 1:
     file_path = os.path.join ('raw_data', 'paragraph_1.txt')
-else:
+elif user_input == 2:
     file_path = os.path.join ('raw_data', 'paragraph_2.txt')
-'''
+else:
+    print ("Invalid Entry. File not found")
 
 file_path = os.path.join ('raw_data', 'readme_example.txt')
+'''
 
+fileList = ["paragraph_1.txt","paragraph_2.txt"]
+for file in fileList:
+    file_path = os.path.join('raw_data',file)
 with open (file_path, 'r') as txt_file:
     paragraph = txt_file.read()
     words = re.split(r' ',paragraph)
@@ -41,7 +47,7 @@ with open (file_path, 'r') as txt_file:
     letter_count = round(letters/word_count,1)
 
     # Calculate words per sentence:
-    sentence_length = word_count/sentence_count
+    sentence_length = round(word_count/sentence_count,1)
 
 # Output print format:
 dash_break = "-----------------------------"
@@ -54,8 +60,10 @@ print_lines = (
 )
 
 # Print & Export the Paragraph analysis text file:
-analysis_file = open('Paragraph_analysis.txt','w+')
+analysis_file = open(file.split(".")[0] + "_analysis.txt",'w+')
 analysis_file.writelines(print_lines)
 analysis_file.close()
-analysis_file = open('Paragraph_analysis.txt','r+')
-print(analysis_file.read())
+analysis_file1 = open('Paragraph_2_analysis.txt','r+')
+print(analysis_file1.read())
+#analysis_file2= open('Paragraph_2_analysis.txt','r+')
+#print(analysis_file2.read())
