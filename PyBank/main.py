@@ -26,7 +26,7 @@ net_amount = sum(profit_loss)
 for i in range(len(date)-1):
     change.append(profit_loss[i+1] - profit_loss[i])   
 
-avg_change = round(sum(change)/len(change),2) 
+average_change = round(sum(change)/len(change),2) 
 max_change = max(change)
 max_date = date[change.index(max_change)+1]
 min_change = min(change)
@@ -38,7 +38,7 @@ print_lines = (
     dash_break + "\n" + "Financial Analysis" + "\n" + dash_break +"\n"
     f"Total Months: {total_months} \n"
     f"Total: ${net_amount} \n"
-    f"Average Change: ${avg_change} \n"
+    f"Average Change: ${average_change} \n"
     f"Greatest Increase in Profits: {max_date} $({max_change}) \n"
     f"Greatest Decrease in Losses: {min_date} $({min_change}) \n" + dash_break +"\n"
     )
