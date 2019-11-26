@@ -19,25 +19,39 @@ if user_input == 1:
 else:
     file_path = os.path.join ('raw_data', 'paragraph_2.txt')
 '''
+
 file_path = os.path.join ('raw_data', 'readme_example.txt')
 
-with open (file_path, 'r') as in_file:
-    textfile_content = in_file.read()
+with open (file_path, 'r') as txt_file:
+    paragraph = txt_file.read()
+    words = re.split(' ',paragraph)
+    sentences = re.split("(?<=[.!?])+",paragraph)
 
-    word_count = len(textfile_content.split( ))
-    sentence_count = textfile_content.count(".")
+    # Count the number of words:
+    word_count = len(paragraph.split(' '))
 
+    # Count the number of sentences:
+    sentence_count = paragraph.count(".")
 
+    # Calculate the average word length:
+    letters = 0
+    for word in words:
+        letters += len(word)
+
+    letter_count = round(letters/word_count,1)
+
+    # Calculate words per sentence:
+    sentence_length = word_count/sentence_count
 
 # Output print format:
 dash_break = "-----------------------------"
-print_lines = {
+print_lines = (
     "Paragraph Analysis \n" + dash_break + "\n"
     f"Approximate Word Count: {word_count} \n" + 
     f"Approximate Sentence Count: {sentence_count} \n" +
     f"Average Letter Count: {letter_count} \n" +
     f"Average Sentence Length: {sentence_length} \n" + dash_break
-}
+)
 
 # Print & Export the Paragraph analysis text file:
 analysis_file = open('Paragraph_analysis.txt','w+')
