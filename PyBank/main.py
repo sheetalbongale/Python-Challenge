@@ -1,6 +1,6 @@
 # Python Homework - PyBank
 # Submitted by : Sheetal Bongale
-# Python 3.7.4
+# Python 3.8
 # This Python script analyzes the monthly financial records
 
 import os
@@ -23,6 +23,7 @@ with open(os.path.join('Resources','budget_data.csv'),'r') as in_file:
 total_months = len(date)
 net_amount = sum(profit_loss)
 
+# Calculate the difference between each profit-loss row & append:
 for i in range(len(date)-1):
     change.append(profit_loss[i+1] - profit_loss[i])   
 
@@ -40,7 +41,7 @@ print_lines = (
     f"Total: ${net_amount} \n"
     f"Average Change: ${average_change} \n"
     f"Greatest Increase in Profits: {max_date} $({max_change}) \n"
-    f"Greatest Decrease in Losses: {min_date} $({min_change}) \n" + dash_break +"\n"
+    f"Greatest Decrease in Profits: {min_date} $({min_change}) \n" + dash_break +"\n"
     )
 
 # Print & Export the Financial Analysis text file:
