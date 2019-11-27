@@ -19,6 +19,7 @@ file_num = input("Enter the paragraph number: 1 or 2 ?")
 file_path = os.path.join('raw_data', 'paragraph_'  + str(file_num) + '.txt')
 
 '''
+To test the paragraph given in the READ.md:
 file_path = os.path.join ('raw_data', 'readme_example.txt')
 '''
 
@@ -54,9 +55,6 @@ print_lines = (
 )
 
 # Print & Export the Paragraph analysis text file:
-'''
-analysis_file = open(file.split(".")[0] + "_analysis.txt",'w+')
-'''
 analysis_file = open('paragraph_analysis_' + str(file_num) + '.txt','w+')
 analysis_file.writelines(print_lines)
 analysis_file.close()
