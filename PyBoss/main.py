@@ -26,10 +26,10 @@ us_state_abbrev = {
 
 # Open and read employee_data.csv file:
 with open(os.path.join('Resources','employee_data.csv'),'r') as old_file:
-    old_employee_data = csv.DictReader(old_file)
-    next(old_employee_data)
+    employee_data = csv.DictReader(old_file)
+    #next(employee_data)
     # Append the new empty data lists after converting the old data to the new format:
-    for row in old_employee_data:
+    for row in employee_data:
         
         emp_id.append(row['Emp ID'])
         first_name.append(row['Name'].split(" ")[0])
@@ -39,10 +39,11 @@ with open(os.path.join('Resources','employee_data.csv'),'r') as old_file:
         state.append(us_state_abbrev[row['State']])
 
 # Zip the modified entries
-cleaned_csv = zip(emp_id,first_name,last_name,dob,ssn,state)
+clean_csv = zip(emp_id,first_name,last_name,dob,ssn,state)
 
 # Write and Export the new updated csv file:
 with open('clean_employee_data.csv' , 'w') as new_file:
     writer = csv.writer(new_file, delimiter = ",")
     writer.writerow(['Emp ID','First Name','Last Name','DOB','SSN','State']) 
-    writer.writerows(cleaned_csv)
+    writer.writerows(clean_csv)
+    print ("Updated Employee data file is ready.")
