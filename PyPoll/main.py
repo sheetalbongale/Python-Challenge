@@ -36,18 +36,17 @@ election_winner = candidates[candidate_votes.index(max(candidate_votes))]
 
 # Print the Election results:
 dash_break = "-------------------------"
-print_lines1 = ("Election Results \n" + dash_break + "\n" + f"Total Votes: {total_votes} \n" + dash_break + "\n")
+print_lines1 = ("Election Results \n" + dash_break + "\n" + f"Total Votes: {total_votes} \n" + dash_break)
 print(print_lines1)
 for count in range(len(candidates)):
     print(f"{candidates[count]}: {vote_percentage[count]}% ({candidate_votes[count]})")
 print_lines2 = (dash_break + "\n" +f"Winner: {election_winner} \n" + dash_break)
 print(print_lines2)
 
-
 # Export the Election Results text file:
 analysis_file = open('Election_analysis.txt','w+')
 analysis_file.writelines(print_lines1)
 for count in range(len(candidates)):
-    analysis_file.write(f"{candidates[count]}: {vote_percentage[count]}% ({candidate_votes[count]}) \n")
+    analysis_file.write(f"\n {candidates[count]}: {vote_percentage[count]}% ({candidate_votes[count]})")
 analysis_file.writelines(print_lines2)
 analysis_file.close()
