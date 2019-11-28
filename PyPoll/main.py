@@ -48,5 +48,5 @@ analysis_file = open('Election_analysis.txt','w+')
 analysis_file.writelines(print_lines1)
 for count in range(len(candidates)):
     analysis_file.write(f"\n {candidates[count]}: {vote_percentage[count]}% ({candidate_votes[count]})")
-analysis_file.writelines(print_lines2)
+analysis_file.writelines("\n" + print_lines2)
 analysis_file.close()
